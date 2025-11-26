@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
-import { ThemeProvider } from "next-themes";
+import Navbar from "./(landing)/components/Navbar";
+import { Bebas_Neue } from "next/font/google";
 import "./globals.css";
+
+const bebas = Bebas_Neue({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -13,28 +18,16 @@ export const metadata: Metadata = {
   description: "The fastest way to build apps with Next.js and Supabase",
 };
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  display: "swap",
-  subsets: ["latin"],
-});
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.className} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+    <html lang="en" suppressHydrationWarning className={`${bebas.className}`}>
+      <body className="antialiased bg-[#F5F3F1]">
+        <Navbar />
+        {children}
       </body>
     </html>
   );
