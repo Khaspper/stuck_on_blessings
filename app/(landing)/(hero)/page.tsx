@@ -1,6 +1,10 @@
 import Image from "next/image";
 import phone from "@/public/imgs/phone.png";
+import bible from "@/public/imgs/bible.png";
+import lego from "@/public/imgs/lego.png";
+import smiski from "@/public/imgs/smiski.png";
 import InfiniteScrollingLogosAnimation from "../components/InfiniteScrollingLogosAnimation";
+import StickerCollage from "../components/StickerCollage";
 
 export default function Hero() {
   return (
@@ -54,8 +58,36 @@ export function HeroMobile() {
 
 function HeroDesktop() {
   return (
-    <div className="hidden sm:block">
-      <h1>Hero Desktop</h1>
+    <div className="flex items-center">
+      <div className="hidden sm:block">
+        <div className="flex border-2 items-center">
+          <h1 className="text-9xl">A faith</h1>
+          <Image
+            src={bible}
+            alt="Holy Bible Sticker"
+            className="w-[clamp(4rem,25vw,7rem)] h-auto"
+          />
+        </div>
+        <div className="flex border-2 items-center">
+          <h1 className="text-9xl">That</h1>
+          <Image
+            src={lego}
+            alt="Lego Sticker"
+            className="w-[clamp(4rem,1vw, 2rem)] h-auto"
+          />
+        </div>
+        <div className="flex border-2 items-center">
+          <h1 className="text-9xl">Sticks</h1>
+          <Image
+            src={smiski}
+            alt="Smiski Sticker"
+            className="w-[clamp(4rem,25vw,10rem)] h-auto"
+          />
+        </div>
+      </div>
+      <div className="border-2">
+        <StickerCollage />
+      </div>
     </div>
   );
 }
