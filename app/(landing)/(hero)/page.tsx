@@ -12,36 +12,42 @@ export default function Hero() {
 }
 
 // TODO: Change all the text-9xl etc to something like this
-// TODO: text-[20vw]
 // TODO: w-[30vw]
-// TODO: gap-[3vw]
 
 export function HeroMobile() {
   return (
     <div className="sm:hidden flex flex-col items-center">
       <InfiniteScrollingLogosAnimation />
-      <div className="flex items-center px-4 pt-16 pb-4 gap-4">
+      <div className="flex items-center px-4 pt-16 pb-4 gap-[3vw]">
         {/* LEFT TEXT */}
         <div className="flex flex-col">
-          <div className="flex gap-8">
-            <span className="text-9xl leading-[.9]">A</span>
-            <span className="text-9xl leading-[.9]">FAITH</span>
+          <div className="flex gap-[5vw]">
+            <span className="text-[clamp(5rem,28vw,700px)] leading-[.9]">
+              A
+            </span>
+            <span className="text-[clamp(5rem,28vw,700px)] leading-[.9]">
+              FAITH
+            </span>
           </div>
-          <span className="text-9xl leading-[.9]">THAT</span>
-          <span className="text-9xl leading-[.9]">STICKS</span>
+          <span className="text-[clamp(5rem,28vw,700px)] leading-[.9]">
+            THAT
+          </span>
+          <span className="text-[clamp(5rem,28vw,700px)] leading-[.9]">
+            STICKS
+          </span>
         </div>
         {/* RIGHT IMAGE */}
         <Image
           src={phone}
           alt="Cell Phone sticker"
-          className="w-[110px] h-auto shrink-0 -mb-24 -ml-10"
+          className="w-[clamp(5rem,28vw,300px)] h-auto shrink-0 -mb-[clamp(.5rem,20vw,100px)] -ml-[clamp(1rem,4vw,100px)]"
         />
       </div>
       <div>
-        <p className="text-center text-2xl">
+        <p className="text-center text-[4vw]">
           Commit your way to the Lord... trust in Him
         </p>
-        <p className="text-center text-2xl">and He will act. - Psalms 37:5</p>
+        <p className="text-center text-[4vw]">and He will act. - Psalms 37:5</p>
       </div>
     </div>
   );

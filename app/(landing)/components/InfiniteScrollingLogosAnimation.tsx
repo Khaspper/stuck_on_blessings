@@ -6,14 +6,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import bible from "@/public/imgs/bible.png";
 import lego from "@/public/imgs/lego.png";
-import smiski from "@/public/imgs/smiski.png";
+import flowers from "@/public/imgs/flowers.png";
 import luffy from "@/public/imgs/luffy.png";
 
 // Ignore this error
 const photos = [
   { src: bible, alt: "Bible sticker" },
   { src: lego, alt: "Lego sticker" },
-  { src: smiski, alt: "Smiski Sticker" },
+  { src: flowers, alt: "Flowers Sticker" },
   { src: luffy, alt: "Luffy One piece Anime sticker" },
 ];
 
