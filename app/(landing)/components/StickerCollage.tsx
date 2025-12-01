@@ -3,7 +3,7 @@ import clock from "@/public/imgs/clock.png";
 import jesus from "@/public/imgs/jesus.png";
 import phone from "@/public/imgs/phone.png";
 import luffy from "@/public/imgs/luffy.png";
-import pochaco from "@/public/imgs/pochaco.png";
+import pochacco from "@/public/imgs/pochacco.png";
 import heart from "@/public/imgs/heart.png";
 import spiderman from "@/public/imgs/spiderman.png";
 
@@ -48,8 +48,8 @@ export default function StickerCollage() {
       />
 
       <Image
-        src={pochaco}
-        alt="Pochaco sticker"
+        src={pochacco}
+        alt="Pochacco sticker"
         className="absolute w-[50%] right-0 bottom-[8%] rotate-[8deg] drop-shadow-md"
       />
     </div>

@@ -61,7 +61,7 @@ function HeroText() {
         </div>
       </div>
       <div>
-        <p className=" text-[clamp(1rem,3vw,1.5rem)]">
+        <p className=" text-[clamp(1rem,3vw,1.5rem)] text-[#e48bb0]">
           Commit your way to the Lord... trust in Him and He will act. - Psalms
           37:5
         </p>
@@ -100,10 +100,10 @@ function HeroMobile() {
         />
       </div>
       <div>
-        <p className="text-center text-[clamp(1rem,4vw,20px)]">
+        <p className="text-center text-[clamp(1rem,4vw,20px)] text-[#e48bb0]">
           Commit your way to the Lord... trust in Him
         </p>
-        <p className="text-center text-[clamp(1rem,4vw,20px)]">
+        <p className="text-center text-[clamp(1rem,4vw,20px)] text-[#e48bb0]">
           and He will act. - Psalms 37:5
         </p>
       </div>
