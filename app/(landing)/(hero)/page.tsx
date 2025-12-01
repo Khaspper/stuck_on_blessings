@@ -44,10 +44,12 @@ export function HeroMobile() {
         />
       </div>
       <div>
-        <p className="text-center text-[4vw]">
+        <p className="text-center text-[clamp(1rem,4vw,20px)]">
           Commit your way to the Lord... trust in Him
         </p>
-        <p className="text-center text-[4vw]">and He will act. - Psalms 37:5</p>
+        <p className="text-center text-[clamp(1rem,4vw,20px)]">
+          and He will act. - Psalms 37:5
+        </p>
       </div>
     </div>
   );
