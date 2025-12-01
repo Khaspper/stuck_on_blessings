@@ -1,6 +1,9 @@
 import Image from "next/image";
 import phone from "@/public/imgs/phone.png";
 import InfiniteScrollingLogosAnimation from "../components/InfiniteScrollingLogosAnimation";
+import bible from "@/public/imgs/bible.png";
+import lego from "@/public/imgs/lego.png";
+import smiski from "@/public/imgs/smiski.png";
 
 export default function Hero() {
   return (
@@ -57,8 +60,54 @@ export function HeroMobile() {
 
 function HeroDesktop() {
   return (
-    <div className="hidden sm:block">
-      <h1>Hero Desktop</h1>
+    <div className="hidden sm:block px-20 border-2 border-red-500 py-10">
+      <div className="flex flex-col">
+        <div className="flex gap-[5vw] h-[clamp(5rem,20vw,250px)] items-center">
+          <span className="text-[clamp(5rem,20vw,250px)] leading-[.9]">A</span>
+          <span className="text-[clamp(5rem,20vw,250px)] leading-[.9]">
+            FAITH
+          </span>
+
+          <div className="h-full flex items-stretch ml-[-2vw]">
+            <Image
+              src={bible}
+              alt="Bible sticker"
+              className="h-[85%] w-auto object-contain"
+            />
+          </div>
+        </div>
+        <div className="flex gap-[3vw] h-[clamp(5rem,20vw,250px)] items-center">
+          <span className="text-[clamp(5rem,20vw,250px)] leading-[.9]">
+            THAT
+          </span>
+          <div className="h-full flex items-stretch ml-[-2vw]">
+            <Image
+              src={lego}
+              alt="Lego sticker"
+              className="h-[85%] w-auto object-contain"
+            />
+          </div>
+        </div>
+        <div className="flex gap-[3vw] h-[clamp(5rem,20vw,250px)] items-center">
+          <span className="text-[clamp(5rem,20vw,250px)] leading-[.9]">
+            STICKS
+          </span>
+          <div className="h-full flex items-stretch ml-[-2vw]">
+            <Image
+              src={smiski}
+              alt="Smiski sticker"
+              className="h-[95%] w-auto object-contain"
+            />
+          </div>
+        </div>
+        <div>
+          <p className="text-[clamp(1rem,4vw,20px)]">
+            Commit your way to the Lord... trust in Him and He will act. -
+            Psalms 37:5
+          </p>
+        </div>
+      </div>
+      <div>Sticker collage</div>
     </div>
   );
 }

@@ -9,7 +9,6 @@ import lego from "@/public/imgs/lego.png";
 import flowers from "@/public/imgs/flowers.png";
 import luffy from "@/public/imgs/luffy.png";
 
-// Ignore this error
 const photos = [
   { src: bible, alt: "Bible sticker" },
   { src: lego, alt: "Lego sticker" },
