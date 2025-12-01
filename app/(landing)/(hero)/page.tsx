@@ -3,18 +3,19 @@ import phone from "@/public/imgs/phone.png";
 import InfiniteScrollingLogosAnimation, {
   InfiniteScrollingLogosAnimationVertical,
 } from "../components/InfiniteScrollingLogosAnimation";
-// import StickerCollage from "../components/StickerCollage";
+import StickerCollage from "../components/StickerCollage";
 import bible from "@/public/imgs/bible.png";
 import lego from "@/public/imgs/lego.png";
 import smiski from "@/public/imgs/smiski.png";
 
 export default function Hero() {
   return (
-    <div>
+    <>
       <HeroMobile />
       <HeroSmallScreen />
       <HeroLargeScreen />
-    </div>
+      <HeroDesktop />
+    </>
   );
 }
 
@@ -69,9 +70,6 @@ function HeroText() {
   );
 }
 
-// TODO: Change all the text-9xl etc to something like this
-// TODO: w-[30vw]
-
 function HeroMobile() {
   return (
     <div className="sm:hidden flex flex-col items-center">
@@ -118,19 +116,31 @@ function HeroSmallScreen() {
     <div className="hidden sm:block lg:hidden">
       <HeroText />
       <InfiniteScrollingLogosAnimation />
-      {/* <StickerCollage /> */}
     </div>
   );
 }
 
 function HeroLargeScreen() {
   return (
-    <div className="hidden lg:flex h-[min(95vh,700px)]">
+    <div className="hidden lg:flex h-[min(95vh,700px)] xl:hidden">
       <div className="self-items-start mr-auto">
         <HeroText />
       </div>
       <div className="mr-auto h-full">
         <InfiniteScrollingLogosAnimationVertical />
+      </div>
+    </div>
+  );
+}
+
+function HeroDesktop() {
+  return (
+    <div className="hidden xl:flex px-10 ml-auto mr-auto">
+      <div className="">
+        <HeroText />
+      </div>
+      <div className="self-center ml-auto mr-auto">
+        <StickerCollage />
       </div>
     </div>
   );

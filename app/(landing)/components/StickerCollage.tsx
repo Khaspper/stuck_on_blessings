@@ -9,7 +9,7 @@ import spiderman from "@/public/imgs/spiderman.png";
 
 export default function StickerCollage() {
   return (
-    <div className="relative h-[clamp(200px,40vw,500px)] w-[clamp(200px,40vw,500px)] shrink-0 grow-0 border-2 border-red-500">
+    <div className="relative h-[clamp(200px,40vw,500px)] w-[clamp(200px,40vw,500px)] shrink-0 grow-0">
       {/* Top left clock */}
       <Image
         src={jesus}
