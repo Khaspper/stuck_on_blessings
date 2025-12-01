@@ -56,7 +56,7 @@ export default function InfiniteScrollingLogosAnimation() {
 
 export function InfiniteScrollingLogosAnimationVertical() {
   return (
-    <div className="hidden lg:flex relative overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:w-full before:h-10 before:bg-gradient-to-b before:to-transparent before:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-10 after:bg-gradient-to-t after:to-transparent after:content-[''] w-60 h-[750px] items-start">
+    <div className="hidden lg:flex relative overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:w-full before:h-10 before:bg-gradient-to-b before:to-transparent before:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-10 after:bg-gradient-to-t after:to-transparent after:content-[''] w-60 h-full items-start">
       <motion.div
         transition={{
           duration: 25,

@@ -21,7 +21,7 @@ export default function Hero() {
 function HeroText() {
   return (
     <div className="flex flex-col flex-shrink-0 px-10 py-10 items-center lg:items-start lg:w-fit ">
-      <div className="flex gap-[4vw] h-[clamp(7rem,20vw,175px)] items-center">
+      <div className="flex gap-[3vw] h-[clamp(7rem,20vw,175px)] items-center">
         <span className="text-[clamp(10rem,20vw,200px)] leading-[.9]">A</span>
         <span className="text-[clamp(10rem,20vw,200px)] leading-[.9]">
           FAITH
@@ -125,11 +125,11 @@ function HeroSmallScreen() {
 
 function HeroLargeScreen() {
   return (
-    <div className="flex items-center justify-center">
+    <div className="hidden lg:flex h-[min(95vh,700px)]">
       <div className="self-items-start mr-auto">
         <HeroText />
       </div>
-      <div className="mr-auto">
+      <div className="mr-auto h-full">
         <InfiniteScrollingLogosAnimationVertical />
       </div>
     </div>
