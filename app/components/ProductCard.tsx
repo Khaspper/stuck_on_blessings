@@ -1,21 +1,12 @@
-"use client";
-
-import { createClient } from "../lib/supabase/client";
 import Image from "next/image";
 
-export default function ProductCard() {
-  const supabase = createClient();
-
-  const { data } = supabase.storage
-    .from("sticker_images")
-    .getPublicUrl("first_drop_stickers/bible.png");
-
-  if (!data?.publicUrl) {
-    return <div>Image not found</div>;
-  }
-
-  const bible = data.publicUrl;
-
+export default function ProductCard({
+  productImage,
+  alt,
+}: {
+  productImage: string;
+  alt: string;
+}) {
   return (
     <div>
       <div>ProductCard</div>
@@ -23,8 +14,8 @@ export default function ProductCard() {
         <Image
           width={100}
           height={100}
-          src={bible}
-          alt="Bible sticker"
+          src={productImage}
+          alt={alt}
           className="h-[95%] w-auto object-contain"
         />
       </div>
