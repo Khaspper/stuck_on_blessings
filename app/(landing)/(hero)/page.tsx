@@ -1,25 +1,45 @@
 import Image from "next/image";
-import phone from "@/public/imgs/phone.png";
 import InfiniteScrollingLogosAnimation, {
   InfiniteScrollingLogosAnimationVertical,
 } from "../components/InfiniteScrollingLogosAnimation";
 import StickerCollage from "../components/StickerCollage";
-import bible from "@/public/imgs/bible.png";
-import lego from "@/public/imgs/lego.png";
-import smiski from "@/public/imgs/smiski.png";
+import {
+  bibleData,
+  legoData,
+  smiskiData,
+  phoneData,
+} from "@/app/lib/supabase/images/images";
 
-export default function Hero() {
+type TImageProps = {
+  bible: string;
+  lego: string;
+  smiski: string;
+};
+
+export default async function Hero() {
   return (
     <>
-      <HeroMobile />
-      <HeroSmallScreen />
-      <HeroLargeScreen />
-      <HeroDesktop />
+      <HeroMobile phone={phoneData.data.publicUrl} />
+      <HeroSmallScreen
+        bible={bibleData.data.publicUrl}
+        lego={legoData.data.publicUrl}
+        smiski={smiskiData.data.publicUrl}
+      />
+      <HeroLargeScreen
+        bible={bibleData.data.publicUrl}
+        lego={legoData.data.publicUrl}
+        smiski={smiskiData.data.publicUrl}
+      />
+      <HeroDesktop
+        bible={bibleData.data.publicUrl}
+        lego={legoData.data.publicUrl}
+        smiski={smiskiData.data.publicUrl}
+      />
     </>
   );
 }
 
-function HeroText() {
+function HeroText({ bible, lego, smiski }: TImageProps) {
   return (
     <div className="flex flex-col flex-shrink-0 px-10 py-10 items-center lg:items-start lg:w-fit ">
       <div className="flex gap-[3vw] h-[clamp(7rem,20vw,175px)] items-center">
@@ -33,6 +53,9 @@ function HeroText() {
             src={bible}
             alt="Bible sticker"
             className="h-[95%] w-auto object-contain"
+            width={200}
+            height={200}
+            unoptimized
           />
         </div>
       </div>
@@ -45,6 +68,8 @@ function HeroText() {
             src={lego}
             alt="Lego sticker"
             className="h-[75%] w-auto object-contain"
+            width={141}
+            height={200}
           />
         </div>
       </div>
@@ -57,6 +82,8 @@ function HeroText() {
             src={smiski}
             alt="Smiski sticker"
             className="h-[100%] w-auto object-contain"
+            width={125}
+            height={200}
           />
         </div>
       </div>
@@ -70,7 +97,7 @@ function HeroText() {
   );
 }
 
-function HeroMobile() {
+function HeroMobile({ phone }: { phone: string }) {
   return (
     <div className="sm:hidden flex flex-col items-center">
       <InfiniteScrollingLogosAnimation />
@@ -97,6 +124,8 @@ function HeroMobile() {
           src={phone}
           alt="Cell Phone sticker"
           className="w-[clamp(5rem,28vw,300px)] h-auto shrink-0 -mb-[clamp(.5rem,20vw,100px)] -ml-[clamp(1rem,4vw,100px)]"
+          width={125}
+          height={220}
         />
       </div>
       <div>
@@ -111,20 +140,20 @@ function HeroMobile() {
   );
 }
 
-function HeroSmallScreen() {
+function HeroSmallScreen({ bible, lego, smiski }: TImageProps) {
   return (
     <div className="hidden sm:block lg:hidden">
-      <HeroText />
+      <HeroText bible={bible} lego={lego} smiski={smiski} />
       <InfiniteScrollingLogosAnimation />
     </div>
   );
 }
 
-function HeroLargeScreen() {
+function HeroLargeScreen({ bible, lego, smiski }: TImageProps) {
   return (
     <div className="hidden lg:flex h-[min(95vh,700px)] xl:hidden">
       <div className="self-items-start mr-auto">
-        <HeroText />
+        <HeroText bible={bible} lego={lego} smiski={smiski} />
       </div>
       <div className="mr-auto h-full">
         <InfiniteScrollingLogosAnimationVertical />
@@ -133,11 +162,11 @@ function HeroLargeScreen() {
   );
 }
 
-function HeroDesktop() {
+function HeroDesktop({ bible, lego, smiski }: TImageProps) {
   return (
     <div className="hidden xl:flex px-10 ml-auto mr-auto">
       <div className="">
-        <HeroText />
+        <HeroText bible={bible} lego={lego} smiski={smiski} />
       </div>
       <div className="self-center ml-auto mr-auto">
         <StickerCollage />
