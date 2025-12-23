@@ -9,7 +9,6 @@ function getPublicUrl(path: string) {
   };
 }
 
-export const bibleData = getPublicUrl("first_drop_stickers/bible.png");
 export const legoData = getPublicUrl("first_drop_stickers/lego.png");
 export const smiskiData = getPublicUrl("first_drop_stickers/smiski.png");
 export const phoneData = getPublicUrl("first_drop_stickers/phone.png");

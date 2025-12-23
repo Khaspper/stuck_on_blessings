@@ -6,7 +6,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import {
-  bibleData,
   legoData,
   flowersData,
   luffyData,
@@ -17,7 +16,6 @@ import {
 } from "@/app/lib/supabase/images/images";
 
 const photos = [
-  { src: bibleData.data.publicUrl, alt: "Bible sticker" },
   { src: legoData.data.publicUrl, alt: "Lego sticker" },
   { src: flowersData.data.publicUrl, alt: "Flowers Sticker" },
   { src: luffyData.data.publicUrl, alt: "Luffy One piece Anime sticker" },
@@ -29,7 +27,7 @@ const photos = [
 
 export default function InfiniteScrollingLogosAnimation() {
   return (
-    <div className="flex relative overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-10 before:bg-gradient-to-r before:to-transparent before:content-[''] after:absolute after:right-0 after:top-0 after:h-full after:w-10 after:bg-gradient-to-l after:to-transparent after:content-[''] h-32 items-center lg:hidden">
+    <div className="flex relative overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-10 before:bg-gradient-to-r before:to-transparent before:content-[''] after:absolute after:right-0 after:top-0 after:h-full after:w-10 after:bg-gradient-to-l after:to-transparent after:content-[''] h-32 items-center lg:hidden -mx-5 sm:-mx-10">
       <motion.div
         transition={{
           duration: 20,

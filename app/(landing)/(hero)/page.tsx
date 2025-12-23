@@ -163,10 +163,8 @@ function HeroLargeScreen({ flowers, lego, smiski }: TImageProps) {
 
 function HeroDesktop({ flowers, lego, smiski }: TImageProps) {
   return (
-    <div className="hidden xl:flex px-10 ml-auto mr-auto">
-      <div className="">
-        <HeroText flowers={flowers} lego={lego} smiski={smiski} />
-      </div>
+    <div className="hidden xl:flex ml-auto mr-auto">
+      <HeroText flowers={flowers} lego={lego} smiski={smiski} />
       <div className="self-center ml-auto mr-auto">
         <StickerCollage />
       </div>
