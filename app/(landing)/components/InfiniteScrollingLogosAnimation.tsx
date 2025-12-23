@@ -4,24 +4,27 @@ import Image from "next/image";
 import React from "react";
 
 import { motion } from "framer-motion";
-import bible from "@/public/imgs/bible.png";
-import lego from "@/public/imgs/lego.png";
-import flowers from "@/public/imgs/flowers.png";
-import luffy from "@/public/imgs/luffy.png";
-import spiderman from "@/public/imgs/spiderman.png";
-import heart from "@/public/imgs/heart.png";
-import clock from "@/public/imgs/clock.png";
-import jesus from "@/public/imgs/jesus.png";
+
+import {
+  bibleData,
+  legoData,
+  flowersData,
+  luffyData,
+  spidermanData,
+  heartData,
+  clockData,
+  jesusData,
+} from "@/app/lib/supabase/images/images";
 
 const photos = [
-  { src: bible, alt: "Bible sticker" },
-  { src: lego, alt: "Lego sticker" },
-  { src: flowers, alt: "Flowers Sticker" },
-  { src: luffy, alt: "Luffy One piece Anime sticker" },
-  { src: spiderman, alt: "Spiderman sticker" },
-  { src: heart, alt: "Heart sticker" },
-  { src: clock, alt: "Clock sticker" },
-  { src: jesus, alt: "Jesus sticker" },
+  { src: bibleData.data.publicUrl, alt: "Bible sticker" },
+  { src: legoData.data.publicUrl, alt: "Lego sticker" },
+  { src: flowersData.data.publicUrl, alt: "Flowers Sticker" },
+  { src: luffyData.data.publicUrl, alt: "Luffy One piece Anime sticker" },
+  { src: spidermanData.data.publicUrl, alt: "Spiderman sticker" },
+  { src: heartData.data.publicUrl, alt: "Heart sticker" },
+  { src: clockData.data.publicUrl, alt: "Clock sticker" },
+  { src: jesusData.data.publicUrl, alt: "Jesus sticker" },
 ];
 
 export default function InfiniteScrollingLogosAnimation() {
@@ -45,6 +48,8 @@ export default function InfiniteScrollingLogosAnimation() {
                 src={src}
                 alt={alt}
                 className="h-32 w-auto flex-none"
+                width={200}
+                height={200}
               />
             ))}
           </React.Fragment>
@@ -75,6 +80,8 @@ export function InfiniteScrollingLogosAnimationVertical() {
                 src={src}
                 alt={alt}
                 className="w-60 h-auto flex-none"
+                width={200}
+                height={200}
               />
             ))}
           </React.Fragment>
