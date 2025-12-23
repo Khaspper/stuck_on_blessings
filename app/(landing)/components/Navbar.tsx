@@ -4,7 +4,7 @@ import { FaInstagram } from "react-icons/fa6";
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between p-6 text-2xl sm:px-20">
+    <nav className="sticky top-0 z-50 flex justify-between p-6 text-2xl sm:px-20 bg-[#F5F3F1]">
       <div className="flex gap-10">
         <a
           href="https://www.instagram.com/stuckonblessings/"
