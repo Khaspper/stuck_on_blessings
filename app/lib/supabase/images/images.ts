@@ -19,3 +19,4 @@ export const spidermanData = getPublicUrl("first_drop_stickers/spiderman.png");
 export const heartData = getPublicUrl("first_drop_stickers/heart.png");
 export const clockData = getPublicUrl("first_drop_stickers/clock.png");
 export const jesusData = getPublicUrl("first_drop_stickers/jesus.png");
+export const pochaccoData = getPublicUrl("first_drop_stickers/pochacco.png");
