@@ -16,7 +16,7 @@ export default async function ProductsList() {
   }
 
   return (
-    <div className="flex flex-wrap mt-12 border-2">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-12 lg:justify-items-center lg:w-fit lg:mx-auto height lg:gap-4">
       {stickers.map((sticker) => (
         <ProductCard
           key={`${sticker.id_uuid}`}

@@ -1,7 +1,6 @@
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const BUCKET = "sticker_images";
 
-export function getPublicUrl(path: string) {
+export function getPublicUrl(path: string, BUCKET: string = "sticker_images") {
   return {
     data: {
       publicUrl: `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${path}`,
