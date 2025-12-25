@@ -12,7 +12,7 @@ export default function ProductCard({
   price: string;
 }) {
   return (
-    <div className="w-[10rem] flex flex-col relative min-h-[15rem] group cursor-pointer">
+    <div className="w-[10rem] flex flex-col relative min-h-[15rem] min-w-[8rem] group cursor-pointer flex-1 shrink-0 border-2 border-red-700">
       <div className="flex justify-center items-center flex-1">
         <Image
           width={100}
@@ -25,7 +25,7 @@ export default function ProductCard({
       <div className="px-2 mt-auto text-gray-600 group-hover:underline">
         {name}
       </div>
-      <div className="px-2 mt-auto text-gray-600">{price} USD</div>
+      <div className="px-2 mt-auto text-gray-600">${price}.00 USD</div>
     </div>
   );
 }
