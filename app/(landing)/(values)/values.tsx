@@ -7,8 +7,6 @@ export default function Values() {
     "bri_and_jelly_pictures"
   );
 
-  console.log("briAndJellyPhoto", briAndJellyPhoto);
-
   return (
     <div className="flex flex-col-reverse justify-center items-center lg:gap-4 md:flex-row">
       <h1 className="text-[2.25rem] mt-24 mb-24 text-center leading-[3rem] md:text-left lg:text-[4rem] lg:leading-[4.75rem] lg:flex-1">
