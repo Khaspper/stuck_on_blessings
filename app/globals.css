@@ -14,3 +14,7 @@
 .animate-scroll {
   animation: scroll 15s linear infinite;
 }
+
+body {
+  font-family: var(--font-bebas), sans-serif;
+}

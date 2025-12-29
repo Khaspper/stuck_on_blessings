@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
 import Navbar from "./(landing)/components/Navbar";
-import { Bebas_Neue } from "next/font/google";
+import { Bebas_Neue, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: "400",
+  variable: "--font-bebas",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-montserrat",
 });
 
 const defaultUrl = process.env.VERCEL_URL
@@ -24,7 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${bebas.className}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${bebas.variable} ${montserrat.variable}`}
+    >
       <body className="antialiased bg-[#F5F3F1]">
         <Navbar />
         {children}
