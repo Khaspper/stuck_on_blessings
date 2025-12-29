@@ -88,8 +88,8 @@ function HeroText({ flowers, lego, smiski }: TImageProps) {
       </div>
       <div>
         <p className=" text-[clamp(1rem,3vw,1.5rem)] text-[#e48bb0]">
-          Commit your way to the Lord... trust in Him and He will act. - Psalms
-          37:5
+          <q>Commit your way to the Lord; trust in Him and He will act.</q> -
+          Psalm 37:5
         </p>
       </div>
     </div>
@@ -129,10 +129,10 @@ function HeroMobile({ phone }: { phone: string }) {
       </div>
       <div>
         <p className="text-center text-[clamp(1rem,4vw,20px)] text-[#e48bb0]">
-          Commit your way to the Lord... trust in Him
+          <q>Commit your way to the Lord... trust in Him</q>
         </p>
         <p className="text-center text-[clamp(1rem,4vw,20px)] text-[#e48bb0]">
-          and He will act. - Psalms 37:5
+          and He will act. - Psalm 37:5
         </p>
       </div>
     </div>
