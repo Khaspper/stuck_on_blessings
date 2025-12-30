@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "./(landing)/components/Navbar";
+import CartProvider from "./(landing)/components/CartProvider";
 import { Bebas_Neue, Montserrat } from "next/font/google";
 import "./globals.css";
 
@@ -37,8 +38,10 @@ export default function RootLayout({
       className={`${bebas.variable} ${montserrat.variable}`}
     >
       <body className="antialiased bg-[#F5F3F1]">
-        <Navbar />
-        {children}
+        <CartProvider>
+          <Navbar />
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

@@ -1,8 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { useCart } from "@/app/(landing)/components/CartProvider";
 
-export default function QuantitySelector({ productId }: { productId: string }) {
+export default function QuantitySelector({
+  productId,
+  price,
+}: {
+  productId: string;
+  price: string;
+}) {
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
 
   const handleDecrease = () => {
@@ -41,8 +49,9 @@ export default function QuantitySelector({ productId }: { productId: string }) {
   };
 
   const handleAddToCart = () => {
-    // TODO: Implement add to cart functionality
-    console.log(`Adding ${quantity} of product ${productId} to cart`);
+    addToCart(productId, quantity, price);
+    // Optional: Show a success message or reset quantity
+    setQuantity(1);
   };
 
   return (

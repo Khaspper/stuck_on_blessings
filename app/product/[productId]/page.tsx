@@ -53,7 +53,7 @@ async function ProductContent({
       <h1 className="text-4xl mt-4 mb-4">Sticker - {stickerName}</h1>
       <p className="font-mont mb-4">${stickerPrice}.00</p>
 
-      <QuantitySelector productId={productId} />
+      <QuantitySelector productId={productId} price={stickerPrice} />
     </div>
   );
 }
