@@ -86,7 +86,7 @@ export default function QuantitySelector({
       </div>
       <button
         onClick={handleAddToCart}
-        className="border border-black bg-white text-gray-700 py-3 px-6 font-mont hover:bg-gray-50 transition-colors"
+        className="border border-black bg-white text-gray-700 py-3 px-6 font-mont hover:bg-gray-50 transition-colors max-w-[75%]"
       >
         Add to cart
       </button>

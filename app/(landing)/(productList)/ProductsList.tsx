@@ -21,10 +21,10 @@ export default async function ProductsList() {
       {stickers.map((sticker) => (
         <Link href={`product/${sticker.id_uuid}`} key={`${sticker.id_uuid}`}>
           <ProductCard
-            productImage={getPublicUrl(sticker.file_path).data.publicUrl}
-            name={sticker.name}
-            alt={sticker.alt}
-            price={sticker.price}
+            stickerImage={getPublicUrl(sticker.file_path).data.publicUrl}
+            stickerName={sticker.name}
+            stickerPrice={sticker.price}
+            stickerAlt={sticker.alt}
           />
         </Link>
       ))}
