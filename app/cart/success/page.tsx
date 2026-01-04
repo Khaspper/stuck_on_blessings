@@ -1,12 +1,12 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import Link from "next/link";
 import { useCart } from "@/app/(landing)/components/CartProvider";
 import { saveOrderFromStripeSession } from "@/app/lib/actions/orders";
 
-export default function Success() {
+function SuccessContent() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id");
   const [loading, setLoading] = useState(true);
@@ -155,5 +155,22 @@ export default function Success() {
         </Link>
       </div>
     </div>
+  );
+}
+
+export default function Success() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center px-5 sm:px-10 bg-[#F5F3F1]">
+          <div className="text-center">
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-gray-300 border-t-[#e48bb0] mb-4"></div>
+            <p className="text-gray-600 font-mont text-lg">Loading...</p>
+          </div>
+        </div>
+      }
+    >
+      <SuccessContent />
+    </Suspense>
   );
 }
