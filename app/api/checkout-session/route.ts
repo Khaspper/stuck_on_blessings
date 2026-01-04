@@ -13,7 +13,9 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    const session = await stripe.checkout.sessions.retrieve(sessionId, {
+      expand: ["line_items", "line_items.data.price.product"],
+    });
 
     return NextResponse.json({ session });
   } catch (error) {

@@ -331,6 +331,12 @@ export default function AdminDashboard() {
                             Email: {order.customer_email}
                           </p>
                         )}
+                        {order.order_note && (
+                          <p className="text-xs sm:text-sm text-gray-600 font-mont break-words mt-2 italic">
+                            <b className="text-[#e48bb0]">Note: </b>
+                            {order.order_note}
+                          </p>
+                        )}
                       </div>
                       <div className="flex flex-col sm:items-end gap-2 sm:gap-0">
                         <p className="text-lg sm:text-xl font-mont sm:mb-2">

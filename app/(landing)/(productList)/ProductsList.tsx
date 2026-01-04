@@ -6,7 +6,6 @@ import Link from "next/link";
 export default async function ProductsList() {
   const supabase = await createClient();
 
-  //TODO: Add RLS IN SUPABASE AFTER YOU HAVE BRI AND JELLY LOGIN
   const { data: stickers, error: stickerError } = await supabase
     .from("stickers")
     .select("*");
