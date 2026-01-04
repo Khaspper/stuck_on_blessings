@@ -88,7 +88,7 @@ function HeroText({ flowers, lego, smiski }: TImageProps) {
       </div>
       <div>
         <p className=" text-[clamp(1rem,3vw,1.5rem)] text-[#e48bb0]">
-          <q>Commit your way to the Lord; trust in Him and He will act.</q> -
+          <q>Commit your way to the Lord... trust in Him and He will act.</q> -
           Psalm 37:5
         </p>
       </div>
