@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCart } from "@/app/(landing)/components/CartProvider";
 
 export default function QuantitySelector({
@@ -12,6 +12,8 @@ export default function QuantitySelector({
 }) {
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
+  const [showNotification, setShowNotification] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleDecrease = () => {
     if (quantity > 1) {
@@ -50,12 +52,45 @@ export default function QuantitySelector({
 
   const handleAddToCart = () => {
     addToCart(productId, quantity, price);
-    // Optional: Show a success message or reset quantity
     setQuantity(1);
+    setShowNotification(true);
+    setIsVisible(true);
   };
+
+  useEffect(() => {
+    if (showNotification) {
+      // Fade in immediately
+      const fadeInTimer = setTimeout(() => setIsVisible(true), 10);
+
+      // Start fade out after 2.5 seconds
+      const fadeOutTimer = setTimeout(() => {
+        setIsVisible(false);
+      }, 2500);
+
+      // Remove from DOM after fade out completes
+      const hideTimer = setTimeout(() => {
+        setShowNotification(false);
+      }, 2800);
+
+      return () => {
+        clearTimeout(fadeInTimer);
+        clearTimeout(fadeOutTimer);
+        clearTimeout(hideTimer);
+      };
+    }
+  }, [showNotification]);
 
   return (
     <div className="flex flex-col gap-4 mb-4">
+      {showNotification && (
+        <div
+          className={`bg-[#e48bb0] text-white px-4 py-2 rounded font-mont text-sm transition-opacity duration-300 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          Added to cart!
+        </div>
+      )}
       <div className="flex flex-col gap-2">
         <label className="text-gray-700 font-mont text-sm">Quantity</label>
         <div className="flex items-center border border-gray-300 bg-white rounded max-w-fit">

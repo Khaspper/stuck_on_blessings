@@ -16,7 +16,7 @@ export type TOrder = {
   customer_name?: string;
   customer_email?: string;
   shipping_address?: string;
-  status: "pending" | "processing" | "completed" | "cancelled";
+  status: "new" | "processing" | "completed" | "cancelled";
   created_at: string;
   updated_at?: string;
 };
@@ -29,7 +29,7 @@ export type TOrder = {
 // - customer_name (text, nullable)
 // - customer_email (text, nullable)
 // - shipping_address (text, nullable)
-// - status (text, default: 'pending')
+// - status (text, default: 'new')
 // - created_at (timestamp, default: now())
 // - updated_at (timestamp, nullable)
 
@@ -116,8 +116,8 @@ export async function getStickerQuantitiesNeeded(): Promise<
   const orders = await getAllOrders();
   const quantities: Record<string, number> = {};
 
-  // Only count pending orders
-  const activeOrders = orders.filter((order) => order.status === "pending");
+  // Only count new orders
+  const activeOrders = orders.filter((order) => order.status === "new");
 
   activeOrders.forEach((order) => {
     order.items.forEach((item) => {

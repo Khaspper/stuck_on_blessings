@@ -243,21 +243,28 @@ export default function Cart() {
             <h2 className="text-2xl mb-6">Order Summary</h2>
 
             <div className="space-y-4 mb-6">
-              <div className="flex justify-between text-gray-700 font-mont">
-                <span>Subtotal</span>
-                <span>${cart.total.toFixed(2)} USD</span>
-              </div>
-              <div className="flex justify-between text-gray-700 font-mont">
-                <span>Shipping</span>
-                <span>Calculated at checkout</span>
-              </div>
               <div className="border-t border-gray-300 pt-4 flex justify-between text-xl">
                 <span className="font-mont">Total</span>
                 <span className="font-mont">${cart.total.toFixed(2)} USD</span>
               </div>
             </div>
 
-            <button className="w-full border border-black bg-white text-gray-700 py-3 px-6 font-mont hover:bg-gray-50 transition-colors mb-4">
+            <button
+              onClick={async () => {
+                const response = await fetch("/api/cart", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ items: cart.items }),
+                });
+                const data = await response.json();
+                if (data.url) {
+                  window.location.href = data.url;
+                }
+              }}
+              className="w-full border border-black bg-white text-gray-700 py-3 px-6 font-mont hover:bg-gray-50 transition-colors mb-4"
+            >
               Proceed to Checkout
             </button>
 

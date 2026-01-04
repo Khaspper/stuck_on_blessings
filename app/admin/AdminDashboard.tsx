@@ -29,7 +29,7 @@ export default function AdminDashboard() {
   const [editingSticker, setEditingSticker] = useState<TSticker | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [orderStatusFilter, setOrderStatusFilter] = useState<
-    "all" | "pending" | "processing" | "completed"
+    "all" | "new" | "processing" | "completed"
   >("all");
   const router = useRouter();
 
@@ -259,14 +259,14 @@ export default function AdminDashboard() {
                 All
               </button>
               <button
-                onClick={() => setOrderStatusFilter("pending")}
+                onClick={() => setOrderStatusFilter("new")}
                 className={`px-3 sm:px-4 py-2 font-mont text-xs sm:text-sm border transition-colors ${
-                  orderStatusFilter === "pending"
+                  orderStatusFilter === "new"
                     ? "border-[#e48bb0] bg-[#e48bb0] text-white"
                     : "border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
                 }`}
               >
-                Pending
+                New
               </button>
               <button
                 onClick={() => setOrderStatusFilter("processing")}
@@ -346,7 +346,7 @@ export default function AdminDashboard() {
                           }
                           className="w-full sm:w-auto border border-gray-300 rounded px-3 py-2 sm:py-1 font-mont text-sm"
                         >
-                          <option value="pending">Pending</option>
+                          <option value="new">New</option>
                           <option value="processing">Processing</option>
                           <option value="completed">Completed</option>
                         </select>
