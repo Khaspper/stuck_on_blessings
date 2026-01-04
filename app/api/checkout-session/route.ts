@@ -1,6 +1,8 @@
 import { NextResponse, NextRequest } from "next/server";
 import { stripe } from "@/app/lib/stripe";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   try {
     const searchParams = req.nextUrl.searchParams;
