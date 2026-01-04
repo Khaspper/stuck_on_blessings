@@ -1,11 +1,9 @@
 import { NextResponse, NextRequest } from "next/server";
 import { stripe } from "@/app/lib/stripe";
 
-export const dynamic = "force-dynamic";
-
 export async function GET(req: NextRequest) {
   try {
-    const searchParams = req.nextUrl.searchParams;
+    const { searchParams } = new URL(req.url);
     const sessionId = searchParams.get("session_id");
 
     if (!sessionId) {
