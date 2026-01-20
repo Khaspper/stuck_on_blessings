@@ -453,6 +453,8 @@ function StickerModal({
     alt: sticker?.alt || "",
   });
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   useEffect(() => {
     // Update form data when sticker changes
@@ -462,6 +464,7 @@ function StickerModal({
       file_path: sticker?.file_path || "",
       alt: sticker?.alt || "",
     });
+    setSelectedFile(null);
   }, [sticker]);
 
   useEffect(() => {
@@ -490,6 +493,40 @@ function StickerModal({
       alert("Failed to save sticker");
     } finally {
       setSaving(false);
+    }
+  }
+
+  async function handleUploadSelectedFile() {
+    if (!selectedFile) return;
+
+    setUploading(true);
+    try {
+      const supabase = createClient();
+
+      // Keep compatibility with getPublicUrl() default bucket ("sticker_images")
+      // by uploading into the "first_drop_stickers/" folder inside that bucket.
+      const safeName = selectedFile.name.replace(/\s+/g, "_");
+      const storagePath = `first_drop_stickers/${safeName}`;
+
+      const { error } = await supabase.storage
+        .from("sticker_images")
+        .upload(storagePath, selectedFile, {
+          cacheControl: "3600",
+          upsert: false,
+          contentType: selectedFile.type || undefined,
+        });
+
+      if (error) {
+        throw error;
+      }
+
+      setFormData((prev) => ({ ...prev, file_path: storagePath }));
+      setSelectedFile(null);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      alert("Failed to upload image");
+    } finally {
+      setUploading(false);
     }
   }
 
@@ -569,6 +606,26 @@ Sticker name
               placeholder="e.g., first_drop_stickers/lego.png"
               className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#e48bb0] disabled:opacity-50"
             />
+            <div className="mt-3 flex flex-col sm:flex-row gap-2">
+              <input
+                type="file"
+                accept="image/*"
+                disabled={saving || uploading}
+                onChange={(e) => setSelectedFile(e.target.files?.[0] || null)}
+                className="flex-1 text-sm font-mont text-gray-700"
+              />
+              <button
+                type="button"
+                onClick={handleUploadSelectedFile}
+                disabled={!selectedFile || saving || uploading}
+                className="border border-gray-300 bg-white text-gray-700 py-2 px-4 font-mont text-sm hover:bg-gray-50 transition-colors disabled:opacity-50"
+              >
+                {uploading ? "Uploading..." : "Upload Image"}
+              </button>
+            </div>
+            <p className="mt-2 text-xs text-gray-500 font-mont">
+              Uploads to Supabase Storage: <span className="font-semibold">sticker_images/first_drop_stickers/</span>
+            </p>
           </div>
           <div>
             <label className="block text-gray-700 font-mont text-sm mb-2">
