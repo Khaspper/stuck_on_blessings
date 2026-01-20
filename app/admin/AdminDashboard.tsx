@@ -556,8 +556,7 @@ function StickerModal({
           </div>
           <div>
             <label className="block text-gray-700 font-mont text-sm mb-2">
-              File Path (Bri and Nikka PLEASE just put <q>Temp</q>... If you
-              want to change it tell me first)
+Sticker name
             </label>
             <input
               type="text"
