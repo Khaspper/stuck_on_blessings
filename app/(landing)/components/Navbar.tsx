@@ -24,8 +24,8 @@ export default function Navbar() {
         >
           <FaInstagram />
         </a>
-        <Link href="/">Values</Link>
-        <h1>Stickers</h1>
+        <Link href="/">Home</Link>
+        {/* <h1>Stickers</h1> */}
       </div>
       <Link href={"/cart"} className="sm:hidden text-[#FBD070] relative">
         <FaBagShopping />
